@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DosenController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,10 +14,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('layouts.master');
-});
+// Route::get('/', function () {
+//     return view('dosen.index');
+// });
 
-Route::get('/login', function () {
-    return view('welcome');
-});
+// Route::get('/login', function () {
+//     return view('welcome');
+// });
+
+Route::get('/', [DosenController::class, 'index']);
+Route::get('create', [DosenController::class, 'create']);
+Route::post('store', [DosenController::class, 'store']);
+Route::put('dosen/{id}', [DosenController::class, 'update']);
+Route::get('dosen/{id}/edit', [DosenController::class, 'edit']);
+
+Route::delete('dosen/{id}', [DosenController::class, 'destroy']);
+
