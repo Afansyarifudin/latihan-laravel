@@ -57,4 +57,6 @@ class DosenController extends Controller
 
         return redirect('/');
     }
+
+    
 }
