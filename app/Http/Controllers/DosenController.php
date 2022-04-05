@@ -6,13 +6,15 @@ use Illuminate\Http\Request;
 use PhpParser\Builder\Function_;
 use PhpParser\Node\Expr\FuncCall;
 use Illuminate\Support\Facades\DB;
+use App\Models\Dosen;
 
 
 class DosenController extends Controller
 {
     public function index()
     {
-        $dosen = DB::table('dosen')->get();
+        // $dosen = DB::table('dosen')->get();
+        $dosen = Dosen::get();
         // dd($dosen);
         return view ('dosen.index', compact('dosen'));
     }
@@ -24,25 +26,21 @@ class DosenController extends Controller
 
     public function store(Request $request)
     {
-        DB::table('dosen')->insert([
-            'nama' => $request->nama,
-            'usia' => $request->usia,
-            'mata_kuliah' => $request->mata_kuliah,
-            'sks' => $request->sks,
-        ]);
+        Dosen::create($request->all());
 
         return redirect('/');
     }
 
     public function edit($id)
     {
-        $dosen = DB::table('dosen')->where('id', $id)->first();
+        // $dosen = Dosen::where('id', $id)->first();
+        $dosen = Dosen::find($id);
         return view('dosen.edit', ['dosen' => $dosen]);
     }
 
     public function update(Request $request, $id)
     {
-        $dosen = DB::table('dosen')->where('id', $id)->update([
+        $dosen = Dosen::find($id)->update([
             'nama' => $request->nama,
             'usia' => $request->usia,
             'mata_kuliah' => $request->mata_kuliah,
@@ -53,8 +51,10 @@ class DosenController extends Controller
 
     public function destroy($id)
     {
-        $dosen = DB::table('dosen')->where('id', $id)->delete();
+        $dosen = Dosen::find($id)->delete();
 
         return redirect('/');
     }
+
+
 }
