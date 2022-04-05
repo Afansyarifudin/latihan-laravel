@@ -26,12 +26,7 @@ class DosenController extends Controller
 
     public function store(Request $request)
     {
-        Dosen::create([
-            'nama' => $request->nama,
-            'usia' => $request->usia,
-            'mata_kuliah' => $request->mata_kuliah,
-            'sks' => $request->sks,
-        ]);
+        Dosen::create($request->all());
 
         return redirect('/');
     }

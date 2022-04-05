@@ -10,7 +10,11 @@ class Dosen extends Model
     use HasFactory;
 
 
-    protected $guarded = [
+    protected $fillable = [
+        'nama',
+        'usia',
+        'mata_kuliah',
+        'sks',
 
     ];
 
