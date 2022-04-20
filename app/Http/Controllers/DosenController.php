@@ -28,7 +28,7 @@ class DosenController extends Controller
     {
         Dosen::create($request->all());
 
-        return redirect('/');
+        return redirect('/dosen');
     }
 
     public function edit($id)
@@ -46,14 +46,14 @@ class DosenController extends Controller
             'mata_kuliah' => $request->mata_kuliah,
             'sks' => $request->sks
         ]);
-        return redirect('/');
+        return redirect('/dosen');
     }
 
     public function destroy($id)
     {
         $dosen = Dosen::find($id)->delete();
 
-        return redirect('/');
+        return redirect('/dosen');
     }
 
 

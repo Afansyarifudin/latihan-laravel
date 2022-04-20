@@ -22,11 +22,12 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::get('/', [DosenController::class, 'index']);
-Route::get('create', [DosenController::class, 'create']);
-Route::post('store', [DosenController::class, 'store']);
-Route::put('dosen/{id}', [DosenController::class, 'update']);
-Route::get('dosen/{id}/edit', [DosenController::class, 'edit']);
+// Route::get('/', [DosenController::class, 'index']);
+// Route::get('dosen', [DosenController::class, 'create']);
+// Route::post('dosen', [DosenController::class, 'store']);
+// Route::put('dosen/{id}', [DosenController::class, 'update']);
+// Route::get('dosen/{id}/edit', [DosenController::class, 'edit']);
 
-Route::delete('dosen/{id}', [DosenController::class, 'destroy']);
+// Route::delete('dosen/{id}', [DosenController::class, 'destroy']);
 
+Route::resource('dosen', DosenController::class);
