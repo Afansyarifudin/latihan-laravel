@@ -185,7 +185,7 @@
                 <div class="main-content">
                     <h4>Tambah Data Dosen</h4>
                     <br>
-                    <form action="{{ url('/store') }}" method="post">
+                    <form action="{{ route('dosen.store') }}" method="post">
                         @csrf
                         <div class="form-group">
                             <label for="formGroupExampleInput">Nama</label>

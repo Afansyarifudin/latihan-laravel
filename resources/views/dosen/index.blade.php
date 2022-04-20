@@ -216,7 +216,7 @@
                                             <i class="anticon anticon-appstore"></i>
                                         </button>
                                     </div> --}}
-                                    <a href="{{ url('/create') }}" class="btn btn-primary float-right">Tambah Data</a>
+                                    <a href="{{ route('dosen.create') }}" class="btn btn-primary float-right">Tambah Data</a>
                                 </div>
                             </div>
                         </div>
